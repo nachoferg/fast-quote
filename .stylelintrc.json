@@ -1,0 +1,18 @@
+{
+  "ignoreFiles": ["**/*.ts", "**/*.tsx"],
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss",
+    "stylelint-no-unused-selectors"
+  ],
+  "rules": {
+    "plugin/no-unused-selectors": true,
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": ["custom-elements", "default-namespace"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+type farm @model @key(fields: ["farmName", "visitDate"]) {
+  farmName: String!
+  visitDate: AWSDate!
+  results: String!
+}
