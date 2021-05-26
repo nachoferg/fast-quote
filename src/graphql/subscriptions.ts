@@ -12,7 +12,6 @@ export const onCreateQuote = /* GraphQL */ `
       gender
       quote
       age
-      test
       updatedAt
       createdAt
     }
@@ -28,7 +27,6 @@ export const onUpdateQuote = /* GraphQL */ `
       gender
       quote
       age
-      test
       updatedAt
       createdAt
     }
@@ -44,7 +42,6 @@ export const onDeleteQuote = /* GraphQL */ `
       gender
       quote
       age
-      test
       updatedAt
       createdAt
     }

@@ -12,7 +12,6 @@ export const getQuote = /* GraphQL */ `
       gender
       quote
       age
-      test
       updatedAt
       createdAt
     }
@@ -43,7 +42,6 @@ export const listQuotes = /* GraphQL */ `
         gender
         quote
         age
-        test
         updatedAt
         createdAt
       }
