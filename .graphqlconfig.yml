@@ -1,6 +1,6 @@
 projects:
-  fast-quote:
-    schemaPath: amplify/backend/api/fast-quote/build/schema.graphql
+  fastquote:
+    schemaPath: amplify/backend/api/fastquote/build/schema.graphql
     includes:
       - src/graphql/**/*.ts
     excludes:

@@ -9,12 +9,17 @@
   "dependencies": {
     "@aws-amplify/api": "^3.2.18",
     "@aws-amplify/auth": "^3.4.18",
-    "@aws-amplify/core": "^3.8.20",
+    "@aws-amplify/core": "^3.8.24",
+    "@aws-amplify/datastore": "^2.10.1",
     "@aws-amplify/ui-components": "^1.1.0",
     "@aws-amplify/ui-react": "^1.0.5",
     "@craco/craco": "^6.1.1",
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@hookform/resolvers": "^2.5.1",
+    "@material-ui/core": "^5.0.0-alpha.34",
+    "@material-ui/icons": "^5.0.0-alpha.34",
+    "@material-ui/lab": "^5.0.0-alpha.34",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
@@ -26,15 +31,21 @@
     "amazon-cognito-identity-js": "^4.6.0",
     "aws-amplify": "^3.3.25",
     "clsx": "^1.1.1",
+    "date-fns": "^2.21.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^1.0.9",
+    "react-hook-form": "^7.6.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "recharts": "^2.0.9",
     "typescript": "^4.2.3",
-    "web-vitals": "^1.1.1"
+    "uninstall": "^0.0.0",
+    "uuid": "^3.4.0",
+    "web-vitals": "^1.1.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "craco start",
@@ -43,12 +54,10 @@
     "eject": "react-scripts eject",
     "nice": "npm-run-all lint format style",
     "nice:fix": "npm-run-all lint:fix format:fix style:fix",
-    "lint": "eslint --cache --report-unused-disable-directives --ignore-path .gitignore ./src --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint --cache --report-unused-disable-directives --ignore-path .eslintignore ./src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint --fix --cache --report-unused-disable-directives --ignore-path .gitignore ./src --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --check --ignore-unknown --ignore-path .gitignore './src/**/*.{js,jsx,ts,tsx,json,md}'",
-    "format:fix": "prettier --write --ignore-unknown --ignore-path .gitignore './src/**/*.{js,jsx,ts,tsx,json,md}'",
-    "style": "stylelint --cache --ignore-path .gitignore './src/**/*.{css}'",
-    "style:fix": "stylelint --fix --cache --ignore-path .gitignore './src/**/*.{css}'"
+    "format:fix": "prettier --write --ignore-unknown --ignore-path .gitignore './src/**/*.{js,jsx,ts,tsx,json,md}'"
   },
   "eslintConfig": {
     "extends": [
@@ -80,13 +89,11 @@
     ],
     "./src/**/*.{css,json,md}": [
       "pretty-quick --staged"
-    ],
-    "./src/**/*.{css}": [
-      "stylelint --fix"
     ]
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.1",
+    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.14.1",
     "eslint": "^7.18.0",
@@ -98,12 +105,6 @@
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
     "prettier": "2.2.1",
-    "pretty-quick": "^3.1.0",
-    "stylelint": "^13.12.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-no-unused-selectors": "^1.0.35",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.19.0"
+    "pretty-quick": "^3.1.0"
   }
 }

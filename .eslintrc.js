@@ -21,6 +21,16 @@ module.exports = {
   },
   plugins: [],
   rules: {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
     "react/jsx-props-no-spreading": "off",
   },
 };
