@@ -14,24 +14,6 @@
     "categories": {
       "auth": {
         "fastquote21be229fe": {}
-      },
-      "storage": {
-        "Quote6w6nyz7tivfrzamxeikzy6mlcydev": {
-          "tableName": "Quote-6w6nyz7tivfrzamxeikzy6mlcy-dev",
-          "region": "us-east-1",
-          "arn": "arn:aws:dynamodb:us-east-1:022626042150:table/Quote-6w6nyz7tivfrzamxeikzy6mlcy-dev",
-          "streamArn": "arn:aws:dynamodb:us-east-1:022626042150:table/Quote-6w6nyz7tivfrzamxeikzy6mlcy-dev/stream/2021-05-26T15:20:32.846",
-          "partitionKeyName": "qid",
-          "partitionKeyType": "S",
-          "sortKeyName": "owner",
-          "sortKeyType": "S"
-        }
-      },
-      "function": {
-        "fastquote2c63bd347": {
-          "deploymentBucketName": "amplify-fastquote2-dev-170809-deployment",
-          "s3Key": "amplify-builds/fastquote2c63bd347-7a54447933377165664c-build.zip"
-        }
       }
     }
   }
