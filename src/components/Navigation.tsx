@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { generatePath } from "react-router";
 import { AmplifySignOut } from "@aws-amplify/ui-react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
+import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core/";
 import LayersIcon from "@material-ui/icons/Layers";
 import { usePageVars } from "./PageVars";
+import { useAuth } from "./AppAuth";
 
 export default function Navigation() {
   const [localNavKey, setLocalNavKey] = useState("");
   const { navKey } = usePageVars();
+  const { signedIn } = useAuth();
 
   useEffect(() => {
     setLocalNavKey(navKey);
@@ -20,16 +18,30 @@ export default function Navigation() {
     <List>
       <ListItem
         button
-        key="home"
-        selected={localNavKey === "home"}
+        key="quote"
+        selected={localNavKey === "quote"}
         component={NavLink}
         to="/"
       >
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
-        <ListItemText primary="Home" />
+        <ListItemText primary="Quote" />
       </ListItem>
+
+      <ListItem
+        button
+        key="quotelist"
+        selected={localNavKey === "quotelist"}
+        component={NavLink}
+        to="/quotelist"
+      >
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <ListItemText primary="Quote List" />
+      </ListItem>
+      {/*
       <ListItem
         button
         key="dashboard"
@@ -42,60 +54,8 @@ export default function Navigation() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItem>
-      <ListItem
-        button
-        key="outreach"
-        selected={localNavKey === "outreach"}
-        component={NavLink}
-        to="/outreach"
-      >
-        <ListItemIcon>
-          <LayersIcon />
-        </ListItemIcon>
-        <ListItemText primary="Outreach" />
-      </ListItem>
-      <ListItem
-        button
-        key="userinfo"
-        selected={localNavKey === "userinfo"}
-        component={NavLink}
-        to="/userinfo"
-      >
-        <ListItemIcon>
-          <LayersIcon />
-        </ListItemIcon>
-        <ListItemText primary="User Info" />
-      </ListItem>
-      <ListItem
-        button
-        key="farmlist"
-        selected={localNavKey === "farmlist"}
-        component={NavLink}
-        to="/farmlist"
-      >
-        <ListItemIcon>
-          <LayersIcon />
-        </ListItemIcon>
-        <ListItemText primary="Farm List" />
-      </ListItem>
-      <ListItem
-        button
-        key="farm1"
-        selected={localNavKey === "farm1"}
-        component={NavLink}
-        to={() =>
-          generatePath("/farm/:farmName/:visitDate", {
-            farmName: "farm1",
-            visitDate: "1985-01-01",
-          })
-        }
-      >
-        <ListItemIcon>
-          <LayersIcon />
-        </ListItemIcon>
-        <ListItemText primary="Farm" />
-      </ListItem>
-      <AmplifySignOut button-text="Custom Text" />
+      */}
+      {signedIn && <AmplifySignOut button-text="Custom Text" />}
     </List>
   );
 }

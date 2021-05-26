@@ -2,40 +2,50 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getFarm = /* GraphQL */ `
-  query GetFarm($farmName: String!, $visitDate: AWSDate!) {
-    getFarm(farmName: $farmName, visitDate: $visitDate) {
-      farmName
-      visitDate
-      results
-      createdAt
+export const getQuote = /* GraphQL */ `
+  query GetQuote($qid: ID!, $owner: String!) {
+    getQuote(qid: $qid, owner: $owner) {
+      qid
+      owner
+      duration
+      smoker
+      gender
+      quote
+      age
+      test
       updatedAt
+      createdAt
     }
   }
 `;
-export const listFarms = /* GraphQL */ `
-  query ListFarms(
-    $farmName: String
-    $visitDate: ModelStringKeyConditionInput
-    $filter: ModelfarmFilterInput
+export const listQuotes = /* GraphQL */ `
+  query ListQuotes(
+    $qid: ID
+    $owner: ModelStringKeyConditionInput
+    $filter: ModelQuoteFilterInput
     $limit: Int
     $nextToken: String
     $sortDirection: ModelSortDirection
   ) {
-    listFarms(
-      farmName: $farmName
-      visitDate: $visitDate
+    listQuotes(
+      qid: $qid
+      owner: $owner
       filter: $filter
       limit: $limit
       nextToken: $nextToken
       sortDirection: $sortDirection
     ) {
       items {
-        farmName
-        visitDate
-        results
-        createdAt
+        qid
+        owner
+        duration
+        smoker
+        gender
+        quote
+        age
+        test
         updatedAt
+        createdAt
       }
       nextToken
     }

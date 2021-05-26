@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textAlign: "right",
   },
   drawerPaper: {
     position: "relative",
@@ -112,7 +113,7 @@ export default function Main() {
   return (
     <>
       <Helmet>
-        <title>{`Fast Quoate - ${localHeader}`}</title>
+        <title>{`McCain Institute - ${localHeader}`}</title>
         <meta name="description" content="App Description" />
       </Helmet>
       <div className={classes.root}>
@@ -122,18 +123,6 @@ export default function Main() {
           className={clsx(classes.appBar, open && classes.appBarShift)}
         >
           <Toolbar className={classes.toolbar}>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              className={clsx(
-                classes.menuButton,
-                open && classes.menuButtonHidden
-              )}
-            >
-              <MenuIcon />
-            </IconButton>
             <Typography
               component="h1"
               variant="h6"
@@ -158,9 +147,24 @@ export default function Main() {
           open={open}
         >
           <div className={classes.toolbarIcon}>
-            <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon />
-            </IconButton>
+            {open ? (
+              <IconButton onClick={handleDrawerClose}>
+                <ChevronLeftIcon />
+              </IconButton>
+            ) : (
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                className={clsx(
+                  classes.menuButton,
+                  open && classes.menuButtonHidden
+                )}
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
           </div>
           <Divider />
           <Navigation />

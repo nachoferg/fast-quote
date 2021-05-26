@@ -13,7 +13,7 @@ import { Logger } from "@aws-amplify/core";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 
 export interface IAuthContextProps {
-  user: object;
+  username: string | undefined;
   signedIn: boolean;
 }
 
@@ -22,7 +22,7 @@ const authContext = createContext({} as IAuthContextProps);
 
 function useAuthProvider() {
   const [signedIn, setSignedIn] = useState(false);
-  const [user, setUser] = useState<object | undefined>();
+  const [username, setUsername] = useState<string | undefined>();
 
   useEffect(
     () =>
@@ -84,20 +84,10 @@ function useAuthProvider() {
         logger.debug(authData);
         if (authData) {
           const userData = authData as CognitoUser;
-          // let groupsLocal = [];
-          // groupsLocal = userData.getSignInUserSession()?.getIdToken()?.payload[
-          //  "cognito:groups"
-          // ];
-          const userLocal = {
-            username: userData.getUsername().split("_")[1],
-            // groups: groupsLocal,
-            // isAdministrator: groupsLocal.includes("Administrators"),
-            // isManager: groupsLocal.includes("Managers"),
-          };
-          setUser(userLocal);
+          setUsername(userData.getUsername());
           setSignedIn(nextAuthState === AuthState.SignedIn);
         } else {
-          setUser(undefined);
+          setUsername(undefined);
           setSignedIn(false);
         }
       }),
@@ -105,7 +95,7 @@ function useAuthProvider() {
   );
 
   return {
-    user,
+    username,
     signedIn,
   } as IAuthContextProps;
 }

@@ -2,18 +2,31 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateFarmInput = {
-  id?: string | null,
-  farmName: string,
-  visitDate: string,
-  results: string,
+export type CreateQuoteInput = {
+  qid: string,
+  owner: string,
+  duration?: string | null,
+  smoker?: string | null,
+  gender?: string | null,
+  quote?: number | null,
+  age?: number | null,
+  test?: string | null,
+  updatedAt?: string | null,
+  createdAt?: string | null,
 };
 
-export type ModelfarmConditionInput = {
-  results?: ModelStringInput | null,
-  and?: Array< ModelfarmConditionInput | null > | null,
-  or?: Array< ModelfarmConditionInput | null > | null,
-  not?: ModelfarmConditionInput | null,
+export type ModelQuoteConditionInput = {
+  duration?: ModelStringInput | null,
+  smoker?: ModelStringInput | null,
+  gender?: ModelStringInput | null,
+  quote?: ModelFloatInput | null,
+  age?: ModelIntInput | null,
+  test?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  and?: Array< ModelQuoteConditionInput | null > | null,
+  or?: Array< ModelQuoteConditionInput | null > | null,
+  not?: ModelQuoteConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -56,23 +69,60 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type farm = {
-  __typename: "farm",
-  farmName?: string,
-  visitDate?: string,
-  results?: string,
-  createdAt?: string,
+export type ModelFloatInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type ModelIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type Quote = {
+  __typename: "Quote",
+  qid?: string,
+  owner?: string,
+  duration?: string | null,
+  smoker?: string | null,
+  gender?: string | null,
+  quote?: number | null,
+  age?: number | null,
+  test?: string | null,
   updatedAt?: string,
+  createdAt?: string,
 };
 
-export type UpdateFarmInput = {
-  farmName?: string | null,
-  visitDate?: string | null,
-  results?: string | null,
+export type UpdateQuoteInput = {
+  qid: string,
+  owner: string,
+  duration?: string | null,
+  smoker?: string | null,
+  gender?: string | null,
+  quote?: number | null,
+  age?: number | null,
+  test?: string | null,
+  updatedAt?: string | null,
+  createdAt?: string | null,
 };
 
-export type DeleteFarmInput = {
-  id?: string | null,
+export type DeleteQuoteInput = {
+  qid: string,
+  owner: string,
 };
 
 export type ModelStringKeyConditionInput = {
@@ -85,13 +135,36 @@ export type ModelStringKeyConditionInput = {
   beginsWith?: string | null,
 };
 
-export type ModelfarmFilterInput = {
-  farmName?: ModelStringInput | null,
-  visitDate?: ModelStringInput | null,
-  results?: ModelStringInput | null,
-  and?: Array< ModelfarmFilterInput | null > | null,
-  or?: Array< ModelfarmFilterInput | null > | null,
-  not?: ModelfarmFilterInput | null,
+export type ModelQuoteFilterInput = {
+  qid?: ModelIDInput | null,
+  owner?: ModelStringInput | null,
+  duration?: ModelStringInput | null,
+  smoker?: ModelStringInput | null,
+  gender?: ModelStringInput | null,
+  quote?: ModelFloatInput | null,
+  age?: ModelIntInput | null,
+  test?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  and?: Array< ModelQuoteFilterInput | null > | null,
+  or?: Array< ModelQuoteFilterInput | null > | null,
+  not?: ModelQuoteFilterInput | null,
+};
+
+export type ModelIDInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
 };
 
 export enum ModelSortDirection {
@@ -100,129 +173,169 @@ export enum ModelSortDirection {
 }
 
 
-export type ModelfarmConnection = {
-  __typename: "ModelfarmConnection",
-  items?:  Array<farm | null > | null,
+export type ModelQuoteConnection = {
+  __typename: "ModelQuoteConnection",
+  items?:  Array<Quote | null > | null,
   nextToken?: string | null,
 };
 
-export type CreateFarmMutationVariables = {
-  input?: CreateFarmInput,
-  condition?: ModelfarmConditionInput | null,
+export type CreateQuoteMutationVariables = {
+  input?: CreateQuoteInput,
+  condition?: ModelQuoteConditionInput | null,
 };
 
-export type CreateFarmMutation = {
-  createFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type CreateQuoteMutation = {
+  createQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };
 
-export type UpdateFarmMutationVariables = {
-  input?: UpdateFarmInput,
-  condition?: ModelfarmConditionInput | null,
+export type UpdateQuoteMutationVariables = {
+  input?: UpdateQuoteInput,
+  condition?: ModelQuoteConditionInput | null,
 };
 
-export type UpdateFarmMutation = {
-  updateFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type UpdateQuoteMutation = {
+  updateQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };
 
-export type DeleteFarmMutationVariables = {
-  input?: DeleteFarmInput,
-  condition?: ModelfarmConditionInput | null,
+export type DeleteQuoteMutationVariables = {
+  input?: DeleteQuoteInput,
+  condition?: ModelQuoteConditionInput | null,
 };
 
-export type DeleteFarmMutation = {
-  deleteFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type DeleteQuoteMutation = {
+  deleteQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };
 
-export type GetFarmQueryVariables = {
-  farmName?: string,
-  visitDate?: string,
+export type GetQuoteQueryVariables = {
+  qid?: string,
+  owner?: string,
 };
 
-export type GetFarmQuery = {
-  getFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type GetQuoteQuery = {
+  getQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };
 
-export type ListFarmsQueryVariables = {
-  farmName?: string | null,
-  visitDate?: ModelStringKeyConditionInput | null,
-  filter?: ModelfarmFilterInput | null,
+export type ListQuotesQueryVariables = {
+  qid?: string | null,
+  owner?: ModelStringKeyConditionInput | null,
+  filter?: ModelQuoteFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
   sortDirection?: ModelSortDirection | null,
 };
 
-export type ListFarmsQuery = {
-  listFarms?:  {
-    __typename: "ModelfarmConnection",
+export type ListQuotesQuery = {
+  listQuotes?:  {
+    __typename: "ModelQuoteConnection",
     items?:  Array< {
-      __typename: "farm",
-      farmName: string,
-      visitDate: string,
-      results: string,
-      createdAt: string,
+      __typename: "Quote",
+      qid: string,
+      owner: string,
+      duration?: string | null,
+      smoker?: string | null,
+      gender?: string | null,
+      quote?: number | null,
+      age?: number | null,
+      test?: string | null,
       updatedAt: string,
+      createdAt: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
 };
 
-export type OnCreateFarmSubscription = {
-  onCreateFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type OnCreateQuoteSubscription = {
+  onCreateQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };
 
-export type OnUpdateFarmSubscription = {
-  onUpdateFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type OnUpdateQuoteSubscription = {
+  onUpdateQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };
 
-export type OnDeleteFarmSubscription = {
-  onDeleteFarm?:  {
-    __typename: "farm",
-    farmName: string,
-    visitDate: string,
-    results: string,
-    createdAt: string,
+export type OnDeleteQuoteSubscription = {
+  onDeleteQuote?:  {
+    __typename: "Quote",
+    qid: string,
+    owner: string,
+    duration?: string | null,
+    smoker?: string | null,
+    gender?: string | null,
+    quote?: number | null,
+    age?: number | null,
+    test?: string | null,
     updatedAt: string,
+    createdAt: string,
   } | null,
 };

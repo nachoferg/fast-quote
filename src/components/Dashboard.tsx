@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import clsx from "clsx";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
-import FarmList from "./FarmList";
 import { usePageVars } from "./PageVars";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,9 +24,12 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   const { setHeader, setNavKey } = usePageVars();
+  const title = "Dashboard";
 
-  setHeader("Dashboard");
-  setNavKey("dashboard");
+  useEffect(() => {
+    setHeader(title);
+    setNavKey("dashboard");
+  }, []);
 
   return (
     <Grid container spacing={3}>
@@ -46,7 +48,7 @@ export default function Dashboard() {
       {/* Recent Orders */}
       <Grid item xs={12}>
         <Paper className={classes.paper}>
-          <FarmList />
+          <p>This is a dashboard.</p>
         </Paper>
       </Grid>
     </Grid>
