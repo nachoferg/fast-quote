@@ -48,36 +48,6 @@ export default function AuthenticatorCustom() {
                 cb(event);
               },
             },
-            {
-              type: "custom:Organization",
-              label: "Organization *",
-              placeholder: "Enter the organization you work for",
-              required: true,
-              handleInputChange: (event: Event, cb: Function) => {
-                logger.debug("custom organization field");
-                cb(event);
-              },
-            },
-            {
-              type: "custom:Name",
-              label: "Name *",
-              placeholder: "Enter your full name",
-              required: true,
-              handleInputChange: (event: Event, cb: Function) => {
-                logger.debug("custom full name field");
-                cb(event);
-              },
-            },
-            {
-              type: "custom:Usage",
-              label: "Usage *",
-              placeholder: "Enter details on usage",
-              required: true,
-              handleInputChange: (event: Event, cb: Function) => {
-                logger.debug("custom usage field");
-                cb(event);
-              },
-            },
           ] as FormFieldTypes
         }
       />
