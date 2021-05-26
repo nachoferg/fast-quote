@@ -1,0 +1,64 @@
+{
+  "auth": {
+    "nachoferg": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "api": {
+    "fastquote": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authnachoferg"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    },
+    "quoterest": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "fastquote4379a86a",
+          "attributes": ["Name", "Arn"]
+        }
+      ]
+    }
+  },
+  "storage": {
+    "quotexonqh2jxybfd3bell4s2lzti5idev": {
+      "service": "DynamoDB",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  },
+  "function": {
+    "fastquote4379a86a": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "quotexonqh2jxybfd3bell4s2lzti5idev",
+          "attributes": ["Name", "Arn"],
+          "attributeEnvMap": {
+            "Name": "TABLE_NAME",
+            "Arn": "TABLE_ARN"
+          }
+        }
+      ]
+    }
+  }
+}

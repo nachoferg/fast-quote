@@ -1,0 +1,11 @@
+type Quote @model @key(fields: ["qid", "owner"]) {
+  qid: ID!
+  owner: String!
+  duration: AWSJSON
+  smoker: String
+  gender: String
+  quote: Float
+  age: Int
+  updatedAt: AWSDateTime!
+  createdAt: AWSDateTime!
+}
